@@ -1,0 +1,67 @@
+.facilities {
+
+  > .flex {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    row-gap: 60px;
+
+    .sibling {
+      align-items: center;
+      flex-basis: 50%;
+      display: block;
+      height: fit-content;
+      opacity: 0;
+      
+      i {
+        background-color: $primary;
+        width: 100%;
+        max-width: 30px;
+        height: 30px;
+        margin: 0 auto;
+      }
+
+      .title {
+        font-size: 0.8rem;
+        line-height: 100%;
+        font-weight: 700;
+        font-family: 'Noto Sans', sans-serif;
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+      }
+
+      .para {
+        font-family: 'Noto Serif', serif;
+        font-size: 0.8rem;
+        text-align: center;
+        margin-bottom: 0;
+        padding: 0 5px;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  &.reveal-active > .flex {
+    @for $i from 1 through 6 {
+      .sibling:nth-child(#{$i}) {
+        animation: reveal-facilities 0.5s forwards;
+        animation-delay: calc(1s * (#{$i - 1} * 0.2));
+      }
+    }
+  }
+}
+
+@keyframes reveal-facilities {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
