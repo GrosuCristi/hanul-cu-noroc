@@ -1,0 +1,226 @@
+@import "./partials/variables";
+@import "./partials/globals";
+@import "./partials/header";
+@import "./partials/footer";
+@import "./partials/greeting";
+@import "./partials/facilities";
+@import "./partials/reviews";
+@import "./partials/gallery";
+@import "./partials/contacts";
+@import "./partials/sidemenu";
+
+
+
+/* Media Queries START */
+
+
+@media (min-width: 414px) {
+  body .facilities > .flex .sibling {
+    // height: 50px;
+
+    i {
+      height: 50px ;
+      max-width: 50px;
+      font-size: 1.4rem;
+    }
+
+    .title {
+      font-size: 1rem !important;
+    }
+  }
+
+  body .contacts .wrapper .side {
+    padding: 40px;
+  }
+}
+
+@media (min-width: 540px) {
+  body .contacts .wrapper .side {
+    flex-direction: row;
+    padding: 50px 20px;
+
+    .introduction {
+      margin: auto;
+    }
+    
+    .introduction .subtext {
+      max-width: 220px;
+    }
+
+    .contact-data {
+      margin-top: 0;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  .grid-gallery {
+    grid-template-areas:
+    "c a b"
+    "c i i"
+    "e h d";
+    grid-template-columns: repeat(3, 3fr);
+    grid-template-rows: repeat(3, clamp(160px, 27.5vw, 210px));
+
+    .a { grid-area: a; }
+    .b { grid-area: b; }
+    .c { grid-area: c; }
+    .d { grid-area: d; }
+    .e { grid-area: e; }
+    .h { grid-area: h; }
+    .i { grid-area: i; }
+  }
+}
+
+@media (min-width: 768px) {
+  .sidemenu-btn {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .header-bottom-bar { display: flex !important; }
+  
+  header {
+    height: 85px;
+
+    .header-top-bar {
+      height: 45px;
+
+      .lang-wrapper {
+        transform: translateY(35px);
+      }
+    }
+    
+    &.shrinked {
+      transform: translateY(-35px);
+    }
+  }
+  
+  .greeting {
+    height: calc(100vh - 50px) !important;
+    margin-top: 50px !important;
+  }
+
+  .lang-dropdown-wrapper.offseted .lang-dropdown{
+    transform: translateY(calc(-100% + 25px)) scale(0.85);
+    &.open {
+      transform: translateY(35px) scale(1);
+    }
+  }
+
+  body .reviews .reviews-wrapper .review {
+    flex-basis: calc(50% - 20px);
+
+    .description {
+      text-align: justify;
+    }
+  }
+
+  .grid-gallery {
+    grid-template-areas:
+    "c a d h"
+    "c b e i";
+    grid-template-columns: repeat(4, 4fr);
+    grid-template-rows: repeat(2, 240px);
+
+    .a { grid-area: a; }
+    .b { grid-area: b; }
+    .c { grid-area: c; }
+    .d { grid-area: d; }
+    .e { grid-area: e; }
+    .h { grid-area: h; }
+    .i { grid-area: i; }
+  }
+
+  body .contacts .wrapper {
+    flex-direction: row;
+    align-items: stretch;
+
+    .side {
+      min-width: 450px;
+      max-width: 50%;
+      //flex-grow: 0.5;
+
+      .contact-data .icon {
+        font-size: 1.4rem;
+      }
+    }
+    
+    .map {
+      height: 100%;
+      margin: 0;
+    }
+  }
+}
+
+@media (min-width: 896px) {
+  .facilities {
+    > .flex {
+      row-gap: 80px !important;
+    }
+
+    .sibling {
+      flex-basis: 33.3333% !important;
+    }
+  }
+
+  body .reviews .title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+   header .logo {
+    font-size: 5.5rem !important;
+    transform: translate(-50%, -50%) scale(0.4909) !important;
+
+    &.on-top-of-greeting {
+      transform: translate(-50%, calc(-50% + 30vh + 140px)) !important;
+    }
+  }
+
+  body .reviews {
+    .title {
+      font-size: 2.5rem;
+      margin: 60px auto;
+    }
+
+    .reviews-wrapper {
+      column-gap: 100px;
+      row-gap: 60px;
+      max-width: 900px;
+
+      .review {
+        flex-basis: calc(50% - 50px);
+      }
+    }
+  }
+
+  footer {
+    padding-top: 80px;
+
+    > .flex {
+      flex-direction: row;
+      justify-content: space-between;
+
+      .sibling {
+        width: fit-content;
+        margin-top: 0 !important;
+
+        &:first-child {
+          flex-grow: 0.4;
+        }
+
+        &:nth-child(3) {
+          flex-grow: 0.05;
+        }
+
+        form {
+          width: 250px;
+        }
+      }
+    }
+  }
+}
+
+
+/* Media Queries END */
